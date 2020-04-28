@@ -5,6 +5,9 @@ import {
   // Redirect
 } from 'react-router-dom';
 
+// Layouts
+import Default from '~/styles/layouts/Default';
+
 export default function RouteWrapper({
   component: Component,
   isPrivate,
@@ -22,7 +25,16 @@ export default function RouteWrapper({
 
   // const Layout = signed ? DefaultLayout : AuthLayout;
 
-  return <Route {...rest} render={props => <Component {...props} />} />;
+  return (
+    <Route
+      {...rest}
+      render={props => (
+        <Default>
+          <Component {...props} />
+        </Default>
+      )}
+    />
+  );
 }
 
 RouteWrapper.propTypes = {
