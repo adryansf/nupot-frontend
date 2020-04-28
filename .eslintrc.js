@@ -28,6 +28,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-props-no-spreading': 'off',
     'no-nested-ternary': 'off',
+    'no-plusplus': 'off',
   },
   settings: {
     'import/resolver': {

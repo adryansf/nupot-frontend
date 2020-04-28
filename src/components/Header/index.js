@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { GiFoodTruck as Logo } from 'react-icons/gi';
 import { FaBars, FaAngleDown } from 'react-icons/fa';
 
@@ -10,18 +11,18 @@ import { Container } from './styles';
 
 export default function Header() {
   const [isNavActive, setIsNavActive] = useState(false);
-  const [width, setWidth] = useState(window.screen.width);
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    window.addEventListener('resize', setWidth(window.screen.width));
+    window.onresize = () => setWidth(window.innerWidth);
   }, []);
 
   return (
     <Container>
-      <div className="logo">
+      <Link className="logo" to="/">
         <Logo />
         <h1>PRATTU</h1>
-      </div>
+      </Link>
       {width < 768 && (
         <button
           id="toggle"

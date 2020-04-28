@@ -9,7 +9,7 @@ export const Container = styled.div`
 
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 
-  div.logo {
+  a.logo {
     display: flex;
     align-items: flex-end;
     color: ${props => props.theme.secondary};

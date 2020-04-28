@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 const colors = {
   primary: '#34C759',
   secondary: '#FFF',
-  background: '#1A1A1A',
+  contrast: '#A5A804',
+  black: '#1A1A1A',
   grays: {
     dark: '#252525',
     light: '#737373',

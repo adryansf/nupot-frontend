@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
@@ -16,6 +18,7 @@ export default createGlobalStyle`
 
   html, body, #root{
     min-height: 100vh;
+    overflow-x: hidden;
   }
 
   body{
