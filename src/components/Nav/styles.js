@@ -12,6 +12,7 @@ export const Container = styled.div`
     margin: 10px;
     color: ${({ theme }) => theme.secondary};
     font-weight: bold;
+    font-size: 18px;
     opacity: 0.6;
     transition: all 0.5s;
 
