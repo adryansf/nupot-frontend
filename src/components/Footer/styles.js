@@ -8,6 +8,9 @@ export const Container = styled.div`
   padding: 5px;
   background: ${({ theme }) => theme.grays.dark};
   border-top: 2px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 
   a.logo {
     display: flex;

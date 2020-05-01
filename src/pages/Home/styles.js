@@ -4,11 +4,12 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 80vh;
+  justify-content: center;
+  align-items: center;
   color: ${props => props.theme.secondary};
 
   .intro-text {
     text-align: center;
-    transform: translate(0, 20em);
     line-height: 1;
   }
 
