@@ -29,6 +29,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'no-nested-ternary': 'off',
     'no-plusplus': 'off',
+    'linebreak-style': [0, 'unix'],
   },
   settings: {
     'import/resolver': {
