@@ -13,6 +13,7 @@ export default function Routes() {
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/meals" exact component={Meals} />
+      <Route isPrivate path="/kitchen/new" exact component={Meals} />
       <Route path="/register" exact component={Authentication} />
       <Route path="/login" exact component={Authentication} />
     </Switch>

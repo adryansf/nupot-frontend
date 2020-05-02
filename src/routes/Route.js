@@ -1,37 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Route,
-  // Redirect
-} from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 // Layouts
-import Default from '~/styles/layouts/Default';
+import DefaultLayout from '~/styles/layouts/Default';
+import AuthLayout from '~/styles/layouts/Auth';
+
+// Auth state
+import { useAuth } from '~/contexts/AuthContext';
 
 export default function RouteWrapper({
   component: Component,
   isPrivate,
+  notAuthOnly,
   ...rest
 }) {
-  // const signed;
+  const [signed] = useAuth();
 
-  // if (!signed && isPrivate) {
-  //   return <Redirect to="/" />;
-  // }
+  if (!signed && isPrivate) {
+    return <Redirect to="/login" />;
+  }
 
-  // if (signed && !isPrivate) {
-  //   return <Redirect to="/dashboard" />;
-  // }
+  if (signed && notAuthOnly) {
+    return <Redirect to="/" />;
+  }
 
-  // const Layout = signed ? DefaultLayout : AuthLayout;
+  const Layout = signed ? DefaultLayout : AuthLayout;
 
   return (
     <Route
       {...rest}
       render={props => (
-        <Default>
+        <Layout>
           <Component {...props} />
-        </Default>
+        </Layout>
       )}
     />
   );
@@ -39,10 +41,12 @@ export default function RouteWrapper({
 
 RouteWrapper.propTypes = {
   isPrivate: PropTypes.bool,
+  notAuthOnly: PropTypes.bool,
   component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
     .isRequired,
 };
 
 RouteWrapper.defaultProps = {
   isPrivate: false,
+  notAuthOnly: false,
 };

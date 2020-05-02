@@ -1,22 +1,29 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { useAuth } from '~/contexts/AuthContext';
 import Form from '~/components/Form';
 import TextField from '~/components/TextField';
 import SubmitButton from '~/components/SubmitButton';
 import { handleLogin, handleRegister } from './handleSubmit';
-import { validationSchema, initialValues } from './constants';
+import { getValidationSchema, getInitialValues } from './constants';
 import { FormContainer, Container, Illustration } from './styles';
 import illustration from '~/assets/auth-page-illustration.svg';
 
 export default function Register() {
+  const [signed, setSigned] = useAuth();
   const location = useLocation();
-  const handleSubmit =
-    location.pathname === '/register' ? handleRegister : handleLogin;
+  const isRegisterPage = location.pathname === '/register';
+  const initialValues = getInitialValues(isRegisterPage);
+  const validationSchema = getValidationSchema(isRegisterPage);
+  const handleSubmit = (isRegisterPage ? handleRegister : handleLogin)(
+    signed,
+    setSigned
+  );
   return (
     <Container>
       <Illustration src={illustration} alt="ilustração" />
       <FormContainer>
-        <h1>Registre-se</h1>
+        <h1>{isRegisterPage ? 'Registre-se' : 'Entrar'}</h1>
         <Form
           initialValues={initialValues}
           validationSchema={validationSchema}
