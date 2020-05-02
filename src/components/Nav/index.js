@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Container } from './styles';
 
-export default function Nav({ screenWidth, isNavActive }) {
+export default function Nav({ screenWidth, isNavActive, links }) {
   return (
     <Container mobile={screenWidth < 768} isVisibility={isNavActive}>
-      <Link to="/meals">Refeições</Link>
-      <Link to="/">Cardápios</Link>
-      <Link to="/register">Cadastra-se</Link>
-      <Link to="/login">Login</Link>
+      {links.map((link, index) => (
+        <Link key={index} to={link.to}>
+          {link.label}
+        </Link>
+      ))}
     </Container>
   );
 }
@@ -18,4 +19,11 @@ export default function Nav({ screenWidth, isNavActive }) {
 Nav.propTypes = {
   screenWidth: PropTypes.number.isRequired,
   isNavActive: PropTypes.bool.isRequired,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({ label: PropTypes.string, to: PropTypes.string })
+  ),
+};
+
+Nav.defaultProps = {
+  links: [],
 };
