@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
+// Auth state
+import AuthProvider from './contexts/AuthContext';
+
 // Routes
 import Routes from './routes';
 
@@ -11,12 +14,14 @@ import GlobalStyles from './styles/global';
 function App() {
   return (
     <div className="App">
-      <Theme>
-        <BrowserRouter>
-          <Routes />
-          <GlobalStyles />
-        </BrowserRouter>
-      </Theme>
+      <AuthProvider>
+        <Theme>
+          <BrowserRouter>
+            <Routes />
+            <GlobalStyles />
+          </BrowserRouter>
+        </Theme>
+      </AuthProvider>
     </div>
   );
 }
