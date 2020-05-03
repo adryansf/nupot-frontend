@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import { Link, useHistory } from 'react-router-dom';
 import { GiFoodTruck as Logo } from 'react-icons/gi';
 import { FaBars, FaAngleDown } from 'react-icons/fa';
 import { getLinks } from './constants';
@@ -14,8 +15,16 @@ import { Container } from './styles';
 export default function Header() {
   const [isNavActive, setIsNavActive] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
-  const [signed] = useAuth();
+  const [signed, setSigned] = useAuth();
   const links = getLinks(signed);
+  const history = useHistory();
+
+  const handleLogout = event => {
+    event.preventDefault();
+    localStorage.removeItem('accessToken');
+    setSigned(false);
+    history.push('/');
+  };
 
   useEffect(() => {
     window.onresize = () => setWidth(window.innerWidth);
@@ -37,6 +46,11 @@ export default function Header() {
         </button>
       )}
       <Nav screenWidth={width} isNavActive={isNavActive} links={links} />
+      {signed && (
+        <Button color="secondary" onClick={handleLogout}>
+          Sair
+        </Button>
+      )}
     </Container>
   );
 }
