@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
 import { Container } from './styles';
 
 export default function Home() {
@@ -12,6 +13,9 @@ export default function Home() {
         Refeições e bebidas com descrição nutricional. Sugestões de cardápios, 
         agendamentos de pedidos e reserva de mesa, testamos o seu perfil nutricional.
         </p>
+      </div>
+      <div className="btns-info">
+       <Link to="/">Buscar</Link>
       </div>
     </Container>
   );
