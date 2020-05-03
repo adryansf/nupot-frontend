@@ -7,9 +7,12 @@ export default function Home() {
   return (
     <Container>
       <h1>
-        Saindo de casa ou não, <span>coma bem!</span>
+        Saindo ou não de casa, <span>coma bem!</span>
       </h1>
-      <p>Lorem ipsum dolor amet.</p>
+      <p>
+        Sugestão de cardápios, descrição nutricional, agendamento de pedidos,
+        reserva de mesa e cuidado no preparo do seu alimento.
+      </p>
 
       <Link to="/search">Pesquisar por pratos</Link>
     </Container>
