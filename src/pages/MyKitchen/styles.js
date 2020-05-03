@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
 import chef from '~/assets/chef.svg';
 
 export const Container = styled.div`
@@ -13,7 +14,7 @@ export const Dishes = styled(Paper)`
   margin: 12px 36px;
   padding: 12px;
   right: 0;
-  height: 70vh;
+  height: 80vh;
   background: white;
   width: 1150px;
   display: flex;
@@ -27,3 +28,15 @@ export const Frame = styled.div`
   background-image: url(${chef});
   background-color: white;
 `;
+
+const avatarRadius = '60px';
+export default makeStyles({
+  drawerPaper: {
+    padding: '12px',
+  },
+  avatar: {
+    width: avatarRadius,
+    height: avatarRadius,
+    margin: '30px',
+  },
+});
