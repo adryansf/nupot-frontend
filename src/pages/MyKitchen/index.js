@@ -28,7 +28,7 @@ export default function MyKitchen() {
         <List>
           {menuItems.map(item => (
             <ListItem button key={item.key}>
-              {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
+              {/* <ListItemIcon>{}</ListItemIcon> */}
               <ListItemText primary={item.label} />
             </ListItem>
           ))}

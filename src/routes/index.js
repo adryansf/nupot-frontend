@@ -10,13 +10,7 @@ import Authentication from '~/pages/Authentication';
 import NewKitchen from '~/pages/NewKitchen';
 import MyKitchen from '~/pages/MyKitchen';
 
-// // only for test ----------
-// import { useAuth } from '~/contexts/AuthContext';
-// // ------------------------
-
 export default function Routes() {
-  // const [, setSigned] = useAuth(); // remove after test
-  // setSigned(true); // remove after test
   return (
     <Switch>
       <Route path="/" exact component={Home} />

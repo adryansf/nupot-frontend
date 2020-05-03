@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { useAuth } from '~/contexts/AuthContext';
 import Form from '~/components/Form';
 import TextField from '~/components/TextField';
@@ -10,13 +10,14 @@ import { FormContainer, Container, Illustration } from './styles';
 import illustration from '~/assets/auth-page-illustration.svg';
 
 export default function Register() {
-  const [signed, setSigned] = useAuth();
+  const [, setSigned] = useAuth();
   const location = useLocation();
+  const history = useHistory();
   const isRegisterPage = location.pathname === '/register';
   const initialValues = getInitialValues(isRegisterPage);
   const validationSchema = getValidationSchema(isRegisterPage);
   const handleSubmit = (isRegisterPage ? handleRegister : handleLogin)(
-    signed,
+    history,
     setSigned
   );
   return (
