@@ -9,7 +9,8 @@ export const fakeDish = {
 };
 
 export const menuItems = [
-  { label: 'Entregas', key: 1 },
-  { label: 'Histórico', key: 2 },
-  { label: 'Entregas', key: 3 },
+  { label: 'Minhas entregas', key: 1 },
+  { label: 'Meus pratos', key: 2 },
+  { label: 'Histórico de vendas', key: 3 },
+  { label: 'Dashboard', key: 4 },
 ];

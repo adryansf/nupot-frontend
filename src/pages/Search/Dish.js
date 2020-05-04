@@ -35,10 +35,10 @@ export default function Dish(props) {
       </CardContent>
       <CardActions>
         <IconButton>
-          <FaHeart />
+          <FaHeart color="red" />
         </IconButton>
         <IconButton>
-          <FaShare />
+          <FaShare color="blue" />
         </IconButton>
         <Button>Fazer pedido</Button>
       </CardActions>
