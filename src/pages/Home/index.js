@@ -1,5 +1,5 @@
 import React from 'react';
-// import Button from '@material-ui/core/Button';
+import Chatbot from 'react-messenger-customer-chat';
 import { Link } from 'react-router-dom';
 import { Container } from './styles';
 
@@ -15,6 +15,7 @@ export default function Home() {
       </p>
 
       <Link to="/search">Pesquisar por pratos</Link>
+      <Chatbot pageId="100458851661545" appId="663023314533039" />
     </Container>
   );
 }
