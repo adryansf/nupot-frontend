@@ -63,3 +63,7 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const PresentationContainer = styled.div`
+  margin: 30px;
+`;
