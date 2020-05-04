@@ -19,6 +19,7 @@ export default function Search() {
         {dishes.map(dish => (
           <Dish
             key={dish.id}
+            id={dish.id}
             name={dish.name}
             description={dish.description}
             price={dish.price}
