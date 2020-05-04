@@ -10,6 +10,8 @@ import Authentication from '~/pages/Authentication';
 import NewKitchen from '~/pages/NewKitchen';
 import MyKitchen from '~/pages/MyKitchen';
 import Search from '~/pages/Search';
+import Dishes from '~/pages/Dishes';
+import About from '~/pages/About';
 
 export default function Routes() {
   return (
@@ -21,6 +23,8 @@ export default function Routes() {
       <Route path="/register" exact component={Authentication} />
       <Route path="/login" exact component={Authentication} />
       <Route path="/search" exact component={Search} />
+      <Route path="/about" exact component={About} />
+      <Route path="/dishes/:id" exact component={Dishes} />
     </Switch>
   );
 }
