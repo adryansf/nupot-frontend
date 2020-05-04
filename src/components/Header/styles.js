@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { makeStyles } from '@material-ui/core/styles';
 
 export const Container = styled.div`
   display: flex;
@@ -28,3 +29,15 @@ export const Container = styled.div`
     color: ${props => props.theme.secondary};
   }
 `;
+
+const useStyles = makeStyles({
+  searchBar: {
+    background: 'white',
+    borderRadius: '30px',
+    padding: '0 12px',
+    maxWidth: '400px',
+    minWidth: '300px',
+  },
+});
+
+export default useStyles;

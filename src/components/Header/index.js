@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import jwt from 'jsonwebtoken';
 import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/InputBase';
 import { Link, useHistory } from 'react-router-dom';
 import { GiFoodTruck as Logo } from 'react-icons/gi';
 import { FaBars, FaAngleDown } from 'react-icons/fa';
@@ -11,13 +12,14 @@ import { useAuth } from '~/contexts/AuthContext';
 import Nav from '../Nav';
 
 // Styles
-import { Container } from './styles';
+import useStyles, { Container } from './styles';
 
 export default function Header() {
   const [isNavActive, setIsNavActive] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   const [signed, setSigned] = useAuth();
   const history = useHistory();
+  const classes = useStyles();
 
   const getRole = () => {
     if (!signed) return 'Anonimous';
@@ -46,6 +48,10 @@ export default function Header() {
         <Logo />
         <h1>PRATTU</h1>
       </Link>
+      <Input
+        placeholder="O que você quer comer?"
+        className={classes.searchBar}
+      />
       {width < 768 && (
         <button
           id="toggle"

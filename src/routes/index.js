@@ -9,6 +9,7 @@ import Meals from '~/pages/Meals';
 import Authentication from '~/pages/Authentication';
 import NewKitchen from '~/pages/NewKitchen';
 import MyKitchen from '~/pages/MyKitchen';
+import Search from '~/pages/Search';
 
 export default function Routes() {
   return (
@@ -19,6 +20,7 @@ export default function Routes() {
       <Route isPrivate path="/my_kitchen" exact component={MyKitchen} />
       <Route path="/register" exact component={Authentication} />
       <Route path="/login" exact component={Authentication} />
+      <Route path="/search" exact component={Search} />
     </Switch>
   );
 }
