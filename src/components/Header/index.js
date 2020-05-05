@@ -45,7 +45,7 @@ export default function Header() {
     window.onresize = () => setWidth(window.innerWidth);
   }, []);
 
-  const SearchButton = ({ color = 'white', size = 16, ...rest }) => (
+  const SearchButton = ({ color = 'gray', size = 16, ...rest }) => (
     <IconButton {...rest}>
       <FaSearch size={size} color={color} />
     </IconButton>
