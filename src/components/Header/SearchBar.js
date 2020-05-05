@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import Drawer from '@material-ui/core/Drawer';
 import { useHistory } from 'react-router-dom';
 import InputBase from '@material-ui/core/InputBase';
 
 export default props => {
   const history = useHistory();
   const [query, setQuery] = useState('');
-  const { handleOpen: setIsOpen } = props;
+  const { handleOpen: setIsOpen, ...rest } = props;
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -21,7 +20,7 @@ export default props => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <InputBase onChange={handleChange} {...props} />
+      <InputBase onChange={handleChange} {...rest} />
     </form>
   );
 };

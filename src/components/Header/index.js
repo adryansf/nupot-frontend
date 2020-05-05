@@ -45,9 +45,9 @@ export default function Header() {
     window.onresize = () => setWidth(window.innerWidth);
   }, []);
 
-  const SearchButton = props => (
-    <IconButton {...props}>
-      <FaSearch size={16} />
+  const SearchButton = ({ color = 'white', size = 16, ...rest }) => (
+    <IconButton {...rest}>
+      <FaSearch size={size} color={color} />
     </IconButton>
   );
 
@@ -81,7 +81,7 @@ export default function Header() {
             />
           </Drawer>
           <Tools>
-            <SearchButton onClick={() => setIsOpen(!isOpen)} />
+            <SearchButton onClick={() => setIsOpen(!isOpen)} color="white" />
             <button
               id="toggle"
               type="button"

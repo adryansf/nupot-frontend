@@ -33,7 +33,8 @@ export const Container = styled.div`
 export const Tools = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  min-width: 70px;
 `;
 
 const useStyles = makeStyles({
