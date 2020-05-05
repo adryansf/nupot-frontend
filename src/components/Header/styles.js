@@ -30,6 +30,12 @@ export const Container = styled.div`
   }
 `;
 
+export const Tools = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const useStyles = makeStyles({
   searchBar: {
     background: 'white',

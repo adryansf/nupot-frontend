@@ -26,10 +26,11 @@ export const HeroContainer = styled.div`
   align-items: center;
   color: ${props => props.theme.secondary};
   text-align: center;
-  line-height: 2;
+  line-height: 1;
 
   h1 {
     font-size: 4em;
+    margin: 0 12px;
   }
 
   p {

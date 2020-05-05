@@ -6,7 +6,7 @@ import { Container } from './styles';
 
 export default function Nav({ screenWidth, isNavActive, links }) {
   return (
-    <Container mobile={screenWidth < 768} isVisibility={isNavActive}>
+    <Container mobile={screenWidth < 1170} isVisibility={isNavActive}>
       {links.map((link, index) => (
         <Link key={index} to={link.to}>
           {link.label}
