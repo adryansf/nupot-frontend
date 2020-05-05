@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import jwt from 'jsonwebtoken';
 import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import { Link, useHistory } from 'react-router-dom';
 import { GiFoodTruck as Logo } from 'react-icons/gi';
-import { FaBars, FaAngleDown } from 'react-icons/fa';
+import { FaBars, FaAngleDown, FaSearch } from 'react-icons/fa';
 import { links } from './constants';
 import { useAuth } from '~/contexts/AuthContext';
 
@@ -42,6 +43,12 @@ export default function Header() {
     window.onresize = () => setWidth(window.innerWidth);
   }, []);
 
+  const SearchButton = (
+    <IconButton type="submit">
+      <FaSearch size={16} />
+    </IconButton>
+  );
+
   return (
     <Container>
       <Link className="logo" to="/">
@@ -49,6 +56,7 @@ export default function Header() {
         <h1>PRATTU</h1>
       </Link>
       <SearchBar
+        endAdornment={SearchButton}
         placeholder="O que você quer comer?"
         className={classes.searchBar}
       />

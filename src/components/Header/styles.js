@@ -34,7 +34,7 @@ const useStyles = makeStyles({
   searchBar: {
     background: 'white',
     borderRadius: '30px',
-    padding: '0 12px',
+    paddingLeft: '12px',
     maxWidth: '400px',
     minWidth: '300px',
   },

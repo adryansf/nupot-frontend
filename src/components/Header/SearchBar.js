@@ -5,6 +5,7 @@ import InputBase from '@material-ui/core/InputBase';
 export default props => {
   const history = useHistory();
   const [query, setQuery] = useState('');
+
   const handleSubmit = event => {
     event.preventDefault();
     history.push(`/search?query=${query}`);
@@ -14,6 +15,7 @@ export default props => {
     event.preventDefault();
     setQuery(event.target.value);
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <InputBase onChange={handleChange} {...props} />
