@@ -3,19 +3,33 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 80vh;
+`;
+
+export const PitchContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  color: white;
+  margin-bottom: 100px;
+
+  h3 {
+    font-size: 2em;
+  }
+`;
+
+export const HeroContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 400px;
   align-items: center;
   color: ${props => props.theme.secondary};
   text-align: center;
-  line-height: 1;
+  line-height: 2;
 
   h1 {
     font-size: 4em;
-  }
-
-  h2 {
-    font-size: 6em;
   }
 
   p {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import Chatbot from 'react-messenger-customer-chat';
 
 // Auth state
 import AuthProvider from './contexts/AuthContext';
@@ -22,6 +23,7 @@ function App() {
           </BrowserRouter>
         </Theme>
       </AuthProvider>
+      <Chatbot pageId="100458851661545" appId="663023314533039" />
     </div>
   );
 }
