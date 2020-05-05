@@ -7,3 +7,10 @@ export const fakeDish = {
   image: Food,
   price: 2,
 };
+
+export const fakeRatings = [
+  { id: 1, name: 'Steve', comment: 'Excelente' },
+  { id: 2, name: 'Rogers', comment: 'Maravilhoso' },
+  { id: 3, name: 'Captain', comment: 'A sopa estava fria' },
+  { id: 3, name: 'America', comment: 'Na foto era maior' },
+];

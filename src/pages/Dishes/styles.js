@@ -1,7 +1,18 @@
 import styled from 'styled-components';
+import Paper from '@material-ui/core/Paper';
 
 export const Container = styled.div`
-  width: 100%;
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const RatingsContainer = styled(Paper)`
+  background: white;
+  margin: 12px;
+  padding: 6px;
+  min-width: 300px;
+`;
+
+export const RelatedContentContainer = styled.div`
   color: white;
-  position: relative;
 `;

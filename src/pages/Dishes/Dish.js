@@ -10,8 +10,8 @@ import CardActions from '@material-ui/core/CardActions';
 import dishPlaceholder from '~/assets/dish-placeholder.png';
 
 const StyledCard = styled(Card)`
-  min-width: 345px;
-  max-width: 345px;
+  min-width: 490px;
+  max-width: 490px;
   margin: 12px;
 `;
 
@@ -19,7 +19,7 @@ export default function Dish(props) {
   const { name, description, price, image } = props;
   return (
     <StyledCard>
-      <CardMedia component="img" height="240" image={image} title={name} />
+      <CardMedia component="img" height="340" image={image} title={name} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
           {name}
@@ -33,9 +33,8 @@ export default function Dish(props) {
       </CardContent>
       <CardActions>
         <Button variant="contained" color="primary">
-          Editar
+          Peça agora
         </Button>
-        <Button color="secondary">Deletar</Button>
       </CardActions>
     </StyledCard>
   );

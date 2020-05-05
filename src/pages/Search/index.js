@@ -14,7 +14,7 @@ dishes = dishes.map((item, index) => ({ ...item, id: index }));
 export default function Search() {
   return (
     <Container>
-      <Typography variant="h3">Resultados</Typography>
+      <Typography variant="h3">Escola a sua refeição</Typography>
       <Dishes>
         {dishes.map(dish => (
           <Dish
