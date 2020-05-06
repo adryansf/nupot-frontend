@@ -19,12 +19,14 @@ export default function Home() {
       </HeroContainer>
 
       <PitchContainer>
-        <h3>Veja o PITCH</h3>
         <iframe
-          title="Pitch"
-          src="https://drive.google.com/file/d/1xuGrWUNqQXfXxfxjoYA2x_6UxONAqx7S/preview"
-          width="640"
-          height="480"
+          title="presentation"
+          width="560"
+          height="315"
+          src="https://www.youtube-nocookie.com/embed/cDO_fHpaJuM"
+          frameBorder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
         />
       </PitchContainer>
     </Container>
