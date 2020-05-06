@@ -13,7 +13,7 @@ import { FaHeart, FaShare } from 'react-icons/fa';
 import dishPlaceholder from '~/assets/dish-placeholder.png';
 
 const StyledCard = styled(Card)`
-  min-width: 345px;
+  min-width: 300px;
   max-width: 345px;
   margin: 12px;
 `;

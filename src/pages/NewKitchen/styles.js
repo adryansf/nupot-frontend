@@ -14,4 +14,8 @@ export const Container = styled.div`
 
 export const InfoContainer = styled.div`
   color: white;
+
+  @media (max-width: 400px) {
+    display: none;
+  }
 `;

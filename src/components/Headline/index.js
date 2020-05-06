@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const styledText = styled.h1`
-  font-size: 2em;
+  font-size: 1.5em;
   letter-spacing: 0.2em;
   color: ${({ theme }) => theme.secondary};
 

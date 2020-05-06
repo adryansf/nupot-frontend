@@ -16,6 +16,13 @@ export const PitchContainer = styled.div`
   h3 {
     font-size: 2em;
   }
+
+  @media (max-width: 400px) {
+    iframe {
+      width: 320px;
+      height: auto;
+    }
+  }
 `;
 
 export const HeroContainer = styled.div`
@@ -56,25 +63,21 @@ export const HeroContainer = styled.div`
 
   @media (max-width: 640px) {
     h1 {
-      font-size: 3em;
-    }
-
-    h2 {
-      font-size: 3.2em;
-    }
-  }
-
-  @media (max-width: 320px) {
-    h1 {
-      font-size: 2.3em;
-    }
-
-    h2 {
       font-size: 2em;
     }
 
     p {
       font-size: 1em;
+    }
+  }
+
+  @media (max-width: 320px) {
+    h1 {
+      font-size: 1.5em;
+    }
+
+    p {
+      font-size: 0.5em;
     }
   }
 `;

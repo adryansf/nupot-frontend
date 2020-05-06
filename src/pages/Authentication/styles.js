@@ -8,6 +8,7 @@ export const FormContainer = styled(Paper)`
   display: flex;
   flex-direction: column;
   align-content: space-between;
+  margin: 12px;
 
   h1 {
     margin: 12px 0;
@@ -27,6 +28,10 @@ export const Container = styled.div`
 `;
 
 export const Illustration = styled.img`
+  width: 50%;
   max-width: 600px;
   height: auto;
+  @media (max-width: 400px) {
+    display: none;
+  }
 `;

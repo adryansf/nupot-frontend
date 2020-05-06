@@ -14,9 +14,9 @@ export default function NewKitchen() {
   return (
     <Container>
       <InfoContainer>
-        <p>Cadastre sua cozinha</p>
-        <p>+ Visibilidade</p>
-        <p>+ Vendas</p>
+        <p>Cadastre sua cozinha. Veja as Vantagens:</p>
+        <p>Ganhe mais visibilidade</p>
+        <p>Aumente suas vendas</p>
       </InfoContainer>
       <FormContainer>
         <h1>Nova cozinha</h1>
