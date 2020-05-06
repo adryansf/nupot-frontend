@@ -28,3 +28,8 @@ export const getInitialValues = isRegister =>
   isRegister
     ? { email: '', password: '', confirmPassword: '' }
     : { email: '', password: '' };
+
+export const getLinks = isRegister =>
+  isRegister
+    ? { label: 'Já tenho uma conta', to: '/login' }
+    : { label: 'Ainda não tenho uma conta', to: '/register' };

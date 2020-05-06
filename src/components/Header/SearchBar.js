@@ -5,7 +5,7 @@ import InputBase from '@material-ui/core/InputBase';
 export default props => {
   const history = useHistory();
   const [query, setQuery] = useState('');
-  const { handleOpen: setIsOpen, ...rest } = props;
+  const { handleOpen: setIsOpen = () => null, ...rest } = props;
 
   const handleSubmit = event => {
     event.preventDefault();

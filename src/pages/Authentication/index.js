@@ -1,11 +1,11 @@
 import React from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useHistory, Link } from 'react-router-dom';
 import { useAuth } from '~/contexts/AuthContext';
 import Form from '~/components/Form';
 import TextField from '~/components/TextField';
 import SubmitButton from '~/components/SubmitButton';
 import { handleLogin, handleRegister } from './handleSubmit';
-import { getValidationSchema, getInitialValues } from './constants';
+import { getValidationSchema, getInitialValues, getLinks } from './constants';
 import { FormContainer, Container, Illustration } from './styles';
 import illustration from '~/assets/auth-page-illustration.svg';
 
@@ -20,6 +20,7 @@ export default function Register() {
     history,
     setSigned
   );
+  const link = getLinks(isRegisterPage);
   return (
     <Container>
       <Illustration src={illustration} alt="ilustração" />
@@ -67,6 +68,7 @@ export default function Register() {
             Enviar
           </SubmitButton>
         </Form>
+        <Link to={link.to}>{link.label}</Link>
       </FormContainer>
     </Container>
   );
