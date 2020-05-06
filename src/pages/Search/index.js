@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Headline from '../../components/Headline';
 import Dish from './Dish';
 import { Container, Dishes } from './styles';
 
@@ -14,7 +15,9 @@ dishes = dishes.map((item, index) => ({ ...item, id: index }));
 export default function Search() {
   return (
     <Container>
-      <Typography variant="h3">Escola a sua refeição</Typography>
+      <Headline>
+        Escolha a sua <span>Refeição</span>
+      </Headline>
       <Dishes>
         {dishes.map(dish => (
           <Dish
