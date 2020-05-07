@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Drawer from '@material-ui/core/Drawer';
 import Avatar from '@material-ui/core/Avatar';
@@ -10,20 +10,37 @@ import Button from '@material-ui/core/Button';
 import Dish from './Dish';
 import useStyles, { Container, Dishes } from './styles';
 import { menuItems } from './constants';
-
-// placeholder data
-import { fakeDish } from './constants';
-
-let dishes = Array(10).fill(fakeDish);
-dishes = dishes.map((item, index) => ({ ...item, id: index }));
+import api from '../../services/api';
 
 export default function MyKitchen() {
   const classes = useStyles();
+  const [myDishes, setMyDishes] = useState([]);
+  const [kitchenName, setKitchenName] = useState('');
+
+  useEffect(() => {
+    const fetchDishes = async () => {
+      const token = localStorage.getItem('accessToken');
+      try {
+        const { data, status } = await api.get('/my_kitchen', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        console.log(data, status);
+        setMyDishes(data.dishes);
+        setKitchenName(data.name);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchDishes();
+  }, []);
+
   return (
     <Container>
       <Drawer variant="permanent" classes={{ paper: classes.drawerPaper }}>
         <Avatar className={classes.avatar} />
-        <h2>Nome do restaurante</h2>
+        <h2>{kitchenName}</h2>
         <Divider />
         <List>
           {menuItems.map(item => (
@@ -39,7 +56,7 @@ export default function MyKitchen() {
         </Link>
       </Drawer>
       <Dishes>
-        {dishes.map(dish => (
+        {myDishes.map(dish => (
           <Dish
             key={dish.id}
             name={dish.name}

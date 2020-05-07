@@ -41,12 +41,6 @@ export default function Dish(props) {
         </CardContent>
       </StyledLink>
       <CardActions>
-        <IconButton>
-          <FaHeart color="red" />
-        </IconButton>
-        <IconButton>
-          <FaShare color="blue" />
-        </IconButton>
         <Button>Fazer pedido</Button>
       </CardActions>
     </StyledCard>
