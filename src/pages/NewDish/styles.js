@@ -10,6 +10,8 @@ export const Container = styled.div`
   margin-top: 30px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  min-height: 80vh;
 `;
 
 export const InfoContainer = styled.div`

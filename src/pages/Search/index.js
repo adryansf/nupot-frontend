@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Headline from '../../components/Headline';
 import Dish from './Dish';
 import { Container, Dishes } from './styles';
-
-// placeholder data
-import { fakeDish } from './constants';
-
-let dishes = Array(10).fill(fakeDish);
-dishes = dishes.map((item, index) => ({ ...item, id: index }));
+import api from '../../services/api';
 
 export default function Search() {
+  const [dishes, setDishes] = useState([]);
+
+  useEffect(() => {
+    const fetchDishes = async () => {
+      const { data } = await api.get('/dishes');
+      setDishes(data);
+      console.log(data);
+    };
+    fetchDishes();
+  }, []);
+
   return (
     <Container>
       <Headline>

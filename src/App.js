@@ -15,6 +15,7 @@ import GlobalStyles from './styles/global';
 function App() {
   return (
     <div className="App">
+      {/* Estamos em fase de testes. Nos ajude a melhorar, nos envie seu feedback */}
       <AuthProvider>
         <Theme>
           <BrowserRouter>
