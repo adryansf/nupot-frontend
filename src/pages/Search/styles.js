@@ -6,6 +6,7 @@ export const Container = styled.div`
   width: 100%;
   color: white;
   padding: 18px;
+  min-height: 80vh;
 `;
 
 export const Dishes = styled.div`

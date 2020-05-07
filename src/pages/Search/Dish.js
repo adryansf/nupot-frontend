@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import { FaHeart, FaShare } from 'react-icons/fa';
 import dishPlaceholder from '~/assets/dish-placeholder.png';
 
 const StyledCard = styled(Card)`
@@ -23,27 +21,31 @@ const StyledLink = styled(Link)`
 `;
 
 export default function Dish(props) {
-  const { name, description, price, image, id } = props;
+  const { name, description, price, image, id, onOrder } = props;
+
   return (
-    <StyledCard>
-      <StyledLink to={`/dishes/${id}`}>
-        <CardMedia component="img" height="240" image={image} title={name} />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {name}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {description}
-          </Typography>
-          <Typography variant="body1" color="textPrimary" component="p">
-            R${price.toFixed(2)}
-          </Typography>
-        </CardContent>
-      </StyledLink>
-      <CardActions>
-        <Button>Fazer pedido</Button>
-      </CardActions>
-    </StyledCard>
+    <>
+      <StyledCard>
+        <StyledLink to={`/dishes/${id}`}>
+          <CardMedia component="img" height="240" image={image} title={name} />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              {name}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {description}
+            </Typography>
+            <Typography variant="body1" color="textPrimary" component="p">
+              R${price.toFixed(2)}
+            </Typography>
+          </CardContent>
+        </StyledLink>
+        <CardActions>
+          <Button onClick={onOrder}>Fazer pedido</Button>
+          <Button onClick={onOrder}>Adicionar a sacola</Button>
+        </CardActions>
+      </StyledCard>
+    </>
   );
 }
 
