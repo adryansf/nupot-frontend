@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Dialog from '@material-ui/core/Dialog';
@@ -15,7 +15,7 @@ import api from '../../services/api';
 export default function Search() {
   const [dishes, setDishes] = useState([]);
   const [open, setOpen] = useState(false);
-
+  const { search } = useLocation();
   const handleOrder = () => {
     setOpen(true);
   };
@@ -26,12 +26,12 @@ export default function Search() {
 
   useEffect(() => {
     const fetchDishes = async () => {
-      const { data } = await api.get('/dishes');
-      setDishes(data);
+      const { data } = await api.get(`/dishes${search}`);
       console.log(data);
+      setDishes(data);
     };
     fetchDishes();
-  }, []);
+  }, [search]);
 
   return (
     <Container>
@@ -47,7 +47,7 @@ export default function Search() {
             name={dish.name}
             description={dish.description}
             price={dish.price}
-            image={dish.image}
+            image={`http://prattu-api.herokuapp.com/${dish.photo}`}
           />
         ))}
       </Dishes>

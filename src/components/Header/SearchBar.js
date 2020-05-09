@@ -10,7 +10,7 @@ export default props => {
   const handleSubmit = event => {
     event.preventDefault();
     setIsOpen(false);
-    history.push(`/search?query=${query}`);
+    history.push(`/search?name=${query}`);
   };
 
   const handleChange = event => {

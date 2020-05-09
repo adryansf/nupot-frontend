@@ -1,9 +1,15 @@
 import api from '~/services/api';
 
-export default history => async (values, actions) => {
+export default (history, file) => async (values, actions) => {
   const token = localStorage.getItem('accessToken');
+  const formData = new FormData();
+  formData.append('photo', file);
+  formData.append('name', values.name);
+  formData.append('price', values.price);
+  formData.append('description', values.description);
+  formData.append('photo', values.photo || null);
   try {
-    const { status } = await api.post('/dishes', values, {
+    const { status } = await api.post('/dishes', formData, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

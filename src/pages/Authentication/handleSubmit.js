@@ -4,7 +4,7 @@ export const handleLogin = (history, setSigned) => async (values, actions) => {
   try {
     const {
       data: { token },
-    } = await api.post('/sessions', values);
+    } = await api.post('/tokens', values);
 
     if (token) {
       localStorage.setItem('accessToken', token);
@@ -23,11 +23,12 @@ export const handleRegister = (history, setSigned) => async (
   actions
 ) => {
   try {
-    const { status } = await api.post('/users', values);
+    const { confirmPassword, ...credentials } = values;
+
+    console.log(credentials);
+    const { status, data } = await api.post('/users', credentials);
     if (status === 201) {
-      const {
-        data: { token },
-      } = await api.post('/sessions', values);
+      const { token } = data;
       if (token) {
         localStorage.setItem('accessToken', token);
         setSigned(true);

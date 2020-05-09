@@ -25,7 +25,7 @@ export default function Routes() {
       <Route path="/login" exact component={Authentication} />
       <Route path="/search" exact component={Search} />
       <Route path="/about" exact component={About} />
-      <Route path="/dishes/:id" exact component={Dishes} />
+      <Route path="/dishes/:dishId" exact component={Dishes} />
     </Switch>
   );
 }

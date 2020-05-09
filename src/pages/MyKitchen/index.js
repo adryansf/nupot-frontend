@@ -17,16 +17,19 @@ export default function MyKitchen() {
   const [myDishes, setMyDishes] = useState([]);
   const [kitchenName, setKitchenName] = useState('');
 
+  const handleDeletion = id => {
+    setMyDishes(myDishes.filter(dish => dish.id !== id));
+  };
+
   useEffect(() => {
     const fetchDishes = async () => {
       const token = localStorage.getItem('accessToken');
       try {
-        const { data, status } = await api.get('/my_kitchen', {
+        const { data } = await api.get('/my_kitchen', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log(data, status);
         setMyDishes(data.dishes);
         setKitchenName(data.name);
       } catch (error) {
@@ -62,7 +65,9 @@ export default function MyKitchen() {
             name={dish.name}
             description={dish.description}
             price={dish.price}
-            image={dish.image}
+            image={`http://prattu-api.herokuapp.com/${dish.photo}`}
+            id={dish.id}
+            onDelete={handleDeletion}
           />
         ))}
       </Dishes>

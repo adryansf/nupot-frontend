@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Dish from './Dish';
 import Ratings from './Ratings';
 import { Container, RelatedContentContainer, RatingsContainer } from './styles';
@@ -9,16 +9,17 @@ import api from '../../services/api';
 import { fakeRatings, fakeDish } from './constants';
 
 export default function MyKitchen() {
-  const location = useLocation();
-  console.log(Location);
+  const params = useParams();
+  const { dishId } = params;
   const [dish, setDish] = useState(fakeDish);
   useEffect(() => {
     const fetchDish = async () => {
-      const { data } = await api.get(`/dishes/2`);
+      const { data } = await api.get(`/dishes/${dishId}`);
       setDish(data);
     };
+
     fetchDish();
-  }, []);
+  }, [dishId]);
   return (
     <Container>
       <RelatedContentContainer>
@@ -29,7 +30,7 @@ export default function MyKitchen() {
         name={dish.name}
         description={dish.description}
         price={dish.price}
-        image={dish.image}
+        image={`http://prattu-api.herokuapp.com/${dish.photo}`}
       />
       <RatingsContainer>
         <Ratings ratings={fakeRatings} />

@@ -17,3 +17,15 @@ export const Container = styled.div`
 export const InfoContainer = styled.div`
   color: white;
 `;
+
+export const Label = styled.label`
+  border: black dashed 1px;
+  display: block;
+  min-height: 100px;
+  text-align: center;
+  line-height: 100px;
+  border-radius: 15px;
+  margin: 12px;
+  cursor: pointer;
+  font-size: 2em;
+`;
