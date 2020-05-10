@@ -8,25 +8,27 @@ import { initialValues, validationSchema } from './constants';
 
 import { Container, FormContainer, InfoContainer, Label } from './styles';
 
+import Upload from '../../components/Upload';
+
 export default function NewDish() {
   const [photo, setPhoto] = useState(null);
-
-  const onFileChange = event => {
-    setPhoto(event.target.files[0]);
-  };
+  const [preview, setPreview] = useState(null);
 
   const history = useHistory();
   const handleSubmit = getHandler(history, photo);
+
+  const handleDropPhoto = files => {
+    setPhoto(files[0]);
+    const url = URL.createObjectURL(files[0]);
+    setPreview(url);
+  };
 
   return (
     <Container>
       <InfoContainer />
       <FormContainer>
         <h1>Novo prato</h1>
-        <Label>
-          Adicionar foto
-          <input type="file" style={{ display: 'none' }} />
-        </Label>
+        <Upload onDrop={handleDropPhoto} preview={preview} />
         <Form
           initialValues={initialValues}
           validationSchema={validationSchema}

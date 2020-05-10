@@ -65,7 +65,7 @@ export default function MyKitchen() {
             name={dish.name}
             description={dish.description}
             price={dish.price}
-            image={`http://prattu-api.herokuapp.com/${dish.photo}`}
+            image={`http://prattu-api.herokuapp.com${dish.photo}`}
             id={dish.id}
             onDelete={handleDeletion}
           />
