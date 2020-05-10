@@ -12,12 +12,14 @@ import SubmitButton from '../SubmitButton';
 import useStyles from './styles';
 import getHandler from './handleSubmit';
 import { validationSchema, initialValues } from './constants';
+import { useAuth } from '../../contexts/AuthContext';
 
 export default () => {
   const { root, buttonSend } = useStyles();
   const [open, setOpen] = useState(false);
+  const [isAuth] = useAuth();
 
-  const handleSubmit = getHandler(setOpen);
+  const handleSubmit = getHandler(setOpen, isAuth);
 
   return (
     <>
@@ -40,8 +42,8 @@ export default () => {
           >
             <TextField
               name="comment"
-              label="Comentários"
-              placeholder="Como podemos melhorar?"
+              label="Comente sobre a nossa plataforma!"
+              placeholder="Como podemos melhorar? Também aceitamos críticas, elogios e sugestões! :)"
               variant="outlined"
               autoFocus
               multiline

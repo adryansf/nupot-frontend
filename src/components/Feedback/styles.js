@@ -8,10 +8,6 @@ const useStyles = makeStyles({
   },
   buttonSend: {
     color: '#28a745',
-    // color: 'white',
-    // '&:hover': {
-    //   color: '#28a745',
-    // },
   },
 });
 
