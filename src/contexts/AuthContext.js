@@ -15,7 +15,6 @@ const AuthContextProvider = ({ children }) => {
       isAuthenticated = false;
     }
   }
-  console.log(isAuthenticated);
   const Auth = useState(isAuthenticated);
   return <AuthContext.Provider value={Auth}>{children}</AuthContext.Provider>;
 };

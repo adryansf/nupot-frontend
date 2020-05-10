@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import CurrencyInput from 'react-currency-masked-input';
 import Form from '~/components/Form';
 import TextField from '~/components/TextField';
 import SubmitButton from '~/components/SubmitButton';
 import getHandler from './handleSubmit';
 import { initialValues, validationSchema } from './constants';
 
-import { Container, FormContainer, InfoContainer, Label } from './styles';
+import { Container, FormContainer, InfoContainer } from './styles';
 
 import Upload from '../../components/Upload';
 
@@ -29,6 +28,7 @@ export default function NewDish() {
       <InfoContainer />
       <FormContainer>
         <h1>Novo prato</h1>
+        <br />
         <Upload onDrop={handleDropPhoto} preview={preview} />
         <Form
           initialValues={initialValues}
@@ -46,11 +46,14 @@ export default function NewDish() {
           <TextField
             name="description"
             label="Descrição"
+            type=""
             placeholder="Descreva em poucas palavras seu prato"
             variant="outlined"
             margin="dense"
             size="small"
             fullWidth
+            multiline
+            rows={5}
           />
           <TextField
             name="price"
@@ -67,7 +70,7 @@ export default function NewDish() {
             shape="rounded"
             style={{ justifySelf: 'center' }}
           >
-            Enviar
+            Criar
           </SubmitButton>
         </Form>
       </FormContainer>

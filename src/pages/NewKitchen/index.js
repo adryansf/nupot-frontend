@@ -1,7 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Form from '~/components/Form';
 import TextField from '~/components/TextField';
+import Checkbox from '~/components/Checkbox';
 import SubmitButton from '~/components/SubmitButton';
 import getHandler from './handleSubmit';
 import { initialValues, validationSchema } from './constants';
@@ -11,6 +13,7 @@ import { Container, FormContainer, InfoContainer } from './styles';
 export default function NewKitchen() {
   const history = useHistory();
   const handleSubmit = getHandler(history);
+
   return (
     <Container>
       <InfoContainer>
@@ -41,13 +44,9 @@ export default function NewKitchen() {
             size="small"
             fullWidth
           />
-          <TextField
-            name="address"
-            label="Onde se localiza sua cozinha?"
-            variant="outlined"
-            margin="dense"
-            size="small"
-            fullWidth
+          <FormControlLabel
+            control={<Checkbox name="geolocation" />}
+            label="Usar minha localização"
           />
           <SubmitButton
             variant="contained"

@@ -3,7 +3,15 @@ import api from '~/services/api';
 export default history => async (values, actions) => {
   try {
     const token = localStorage.getItem('accessToken');
-    const { legalId, name } = values;
+    const { legalId, name, geolocation } = values;
+    if (geolocation) {
+      try {
+        navigator.geolocation.getCurrentPosition(position => {
+          const { latitude, longitude } = position.coords;
+          console.log(latitude, longitude);
+        });
+      } catch (error) {}
+    }
     const { status, data } = await api.post(
       '/kitchens',
       {

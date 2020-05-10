@@ -2,8 +2,9 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Chatbot from 'react-messenger-customer-chat';
 
-// Auth state
+// Global states
 import AuthProvider from './contexts/AuthContext';
+import ShopProvider from './contexts/ShopContext';
 
 // Routes
 import Routes from './routes';
@@ -15,14 +16,15 @@ import GlobalStyles from './styles/global';
 function App() {
   return (
     <div className="App">
-      {/* Estamos em fase de testes. Nos ajude a melhorar, nos envie seu feedback */}
       <AuthProvider>
-        <Theme>
-          <BrowserRouter>
-            <Routes />
-            <GlobalStyles />
-          </BrowserRouter>
-        </Theme>
+        <ShopProvider>
+          <Theme>
+            <BrowserRouter>
+              <Routes />
+              <GlobalStyles />
+            </BrowserRouter>
+          </Theme>
+        </ShopProvider>
       </AuthProvider>
       <Chatbot pageId="100458851661545" appId="663023314533039" />
     </div>

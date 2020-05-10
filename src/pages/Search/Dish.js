@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
@@ -9,6 +9,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import dishPlaceholder from '~/assets/dish-placeholder.png';
+import { useShop } from '../../contexts/ShopContext';
 
 const StyledCard = styled(Card)`
   min-width: 300px;
@@ -22,6 +23,14 @@ const StyledLink = styled(Link)`
 
 export default function Dish(props) {
   const { name, description, price, image, id, onOrder } = props;
+  const [shopState, shopDispatch] = useShop();
+  const history = useHistory();
+
+  const addToCart = event => {
+    const dish = { id, name, description, price, image };
+    shopDispatch({ type: 'addOneToCart', payload: { ...dish, quantity: 1 } });
+    history.push('/cart');
+  };
 
   return (
     <>
@@ -42,7 +51,7 @@ export default function Dish(props) {
         </StyledLink>
         <CardActions>
           <Button onClick={onOrder}>Fazer pedido</Button>
-          <Button onClick={onOrder}>Adicionar a sacola</Button>
+          <Button onClick={addToCart}>Adicionar a sacola</Button>
         </CardActions>
       </StyledCard>
     </>

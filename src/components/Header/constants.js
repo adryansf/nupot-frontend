@@ -8,11 +8,13 @@ export const links = {
   ],
   forConsumers: [
     { to: '/meals', label: 'Refeições' },
+    { to: '/cart', label: 'Minha Sacola' },
     { to: '/kitchen/new', label: 'Registre sua cozinha' },
     { to: '/about', label: 'Quem somos' },
   ],
   forKitchens: [
     { to: '/meals', label: 'Refeições' },
+    { to: '/cart', label: 'Minha Sacola' },
     { to: '/my_kitchen', label: 'Minha cozinha' },
     { to: '/about', label: 'Quem somos' },
   ],

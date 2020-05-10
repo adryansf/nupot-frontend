@@ -12,7 +12,7 @@ export default function Default({ children }) {
     <Container>
       <Header />
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </Container>
   );
 }
