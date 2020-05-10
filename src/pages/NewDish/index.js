@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import CurrencyInput from 'react-currency-masked-input';
 import Form from '~/components/Form';
 import TextField from '~/components/TextField';
 import SubmitButton from '~/components/SubmitButton';
@@ -36,7 +37,7 @@ export default function NewDish() {
         >
           <TextField
             name="name"
-            label="Nome"
+            label="Nome do seu prato"
             variant="outlined"
             margin="dense"
             size="small"
@@ -54,6 +55,7 @@ export default function NewDish() {
           <TextField
             name="price"
             label="Preço"
+            type="number"
             variant="outlined"
             margin="dense"
             size="small"
