@@ -1,33 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogActions from '@material-ui/core/DialogActions';
-import Headline from '../../components/Headline';
-import Dish from './Dish';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import Headline from '~/components/Headline';
+import Dish from '~/components/Dish';
 import { Container, Dishes } from './styles';
+import { useShop } from '~/contexts/ShopContext';
 import api from '../../services/api';
 
 export default function Search() {
   const [dishes, setDishes] = useState([]);
-  const [open, setOpen] = useState(false);
   const { search } = useLocation();
-  const handleOrder = () => {
-    setOpen(true);
+  const history = useHistory();
+  const [, shopDispatch] = useShop();
+
+  const handleOrder = dish => event => {
+    shopDispatch({ type: 'addOneToCart', payload: dish });
+    history.push('/cart');
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleCart = dish => event => {
+    shopDispatch({ type: 'addOneToCart', payload: dish });
   };
 
   useEffect(() => {
     const fetchDishes = async () => {
       const { data } = await api.get(`/dishes${search}`);
-      console.log(data);
       setDishes(data);
     };
     fetchDishes();
@@ -42,36 +41,24 @@ export default function Search() {
         {dishes.map(dish => (
           <Dish
             key={dish.id}
-            onOrder={handleOrder}
-            id={dish.id}
             name={dish.name}
             description={dish.description}
             price={dish.price}
             image={`http://prattu-api.herokuapp.com${dish.photo}`}
-          />
+          >
+            <Button onClick={handleOrder(dish)}>Pedir</Button>
+            <Button
+              startIcon={<AddShoppingCartIcon />}
+              onClick={handleCart(dish)}
+            >
+              Sacola
+            </Button>
+            <Link to={`/dishes/${dish.id}`}>
+              <Button>Ver mais detalhes</Button>
+            </Link>
+          </Dish>
         ))}
       </Dishes>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">
-          Obrigado por testar nossa plataforma!
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Em breve você poderá desfrutar de todas as nossas funcionalidades na
-            íntegra
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Ok
-          </Button>
-        </DialogActions>
-      </Dialog>
     </Container>
   );
 }

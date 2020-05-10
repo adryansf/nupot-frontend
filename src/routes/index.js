@@ -11,7 +11,6 @@ import NewKitchen from '~/pages/NewKitchen';
 import MyKitchen from '~/pages/MyKitchen';
 import Search from '~/pages/Search';
 import Cart from '~/pages/Cart';
-import Checkout from '~/pages/Checkout';
 import FollowOrder from '~/pages/FollowOrder';
 import Dishes from '~/pages/Dishes';
 import About from '~/pages/About';
@@ -22,9 +21,8 @@ export default function Routes() {
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/meals" exact component={Search} />
-      <Route path="/cart" exact component={Cart} />
-      <Route path="/checkout" exact component={Checkout} />
-      <Route path="/order_progress" exact component={FollowOrder} />
+      <Route isPrivate path="/cart" exact component={Cart} />
+      <Route isPrivate path="/order_progress" exact component={FollowOrder} />
       <Route isPrivate path="/kitchen/new" exact component={NewKitchen} />
       <Route isPrivate path="/dish/new" exact component={NewDish} />
       <Route isPrivate path="/my_kitchen" exact component={MyKitchen} />

@@ -7,7 +7,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
-import Dish from './Dish';
+import Dish from '~/components/Dish';
 import useStyles, { Container, Dishes } from './styles';
 import { menuItems } from './constants';
 import api from '../../services/api';
@@ -17,8 +17,23 @@ export default function MyKitchen() {
   const [myDishes, setMyDishes] = useState([]);
   const [kitchenName, setKitchenName] = useState('');
 
-  const handleDeletion = id => {
-    setMyDishes(myDishes.filter(dish => dish.id !== id));
+  const handleDeletion = id => event => {
+    const destroyDish = async () => {
+      const token = localStorage.getItem('accessToken');
+      try {
+        const { status } = await api.delete(`/dishes/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (status === 204) {
+          setMyDishes(myDishes.filter(dish => dish.id !== id));
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    destroyDish();
   };
 
   useEffect(() => {
@@ -66,9 +81,14 @@ export default function MyKitchen() {
             description={dish.description}
             price={dish.price}
             image={`http://prattu-api.herokuapp.com${dish.photo}`}
-            id={dish.id}
-            onDelete={handleDeletion}
-          />
+          >
+            <Button variant="contained" color="primary">
+              Editar
+            </Button>
+            <Button color="secondary" onClick={handleDeletion(dish.id)}>
+              Deletar
+            </Button>
+          </Dish>
         ))}
       </Dishes>
     </Container>
