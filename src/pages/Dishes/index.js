@@ -26,7 +26,7 @@ export default function MyKitchen() {
         <h1>Veja também</h1>
       </RelatedContentContainer>
       <Dish
-        key={dish.id}
+        id={dish.id}
         name={dish.name}
         description={dish.description}
         price={dish.price}

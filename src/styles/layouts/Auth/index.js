@@ -12,7 +12,7 @@ export default function Auth({ children }) {
     <Container>
       <Header />
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </Container>
   );
 }

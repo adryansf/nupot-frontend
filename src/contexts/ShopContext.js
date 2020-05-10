@@ -22,7 +22,7 @@ const reducer = (cart, action) => {
         if (index === -1) return [...cart, { ...payload, quantity: 1 }];
         return [
           ...cart.slice(0, index),
-          { ...payload, quantity: cart[index].quantity + 1 },
+          { ...payload, quantity: Number(cart[index].quantity) + 1 },
         ];
       })();
     default:

@@ -1,6 +1,6 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
@@ -12,14 +12,17 @@ import dishPlaceholder from '~/assets/dish-placeholder.png';
 import { useShop } from '../../contexts/ShopContext';
 
 const StyledCard = styled(Card)`
-  min-width: 490px;
-  max-width: 490px;
+  min-width: 300px;
+  max-width: 345px;
   margin: 12px;
 `;
 
-export default function Dish(props) {
-  const { name, description, price, image, id } = props;
+const StyledLink = styled(Link)`
+  color: black;
+`;
 
+export default function Dish(props) {
+  const { name, description, price, image, id, onOrder } = props;
   const [shopState, shopDispatch] = useShop();
   const history = useHistory();
 
@@ -30,29 +33,33 @@ export default function Dish(props) {
   };
 
   return (
-    <StyledCard>
-      <CardMedia component="img" height="340" image={image} title={name} />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
-          {name}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {description}
-        </Typography>
-        <Typography variant="body1" color="textPrimary" component="p">
-          R${price.toFixed(2)}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button variant="contained" color="primary" onClick={addToCart}>
-          Peça agora
-        </Button>
-      </CardActions>
-    </StyledCard>
+    <>
+      <StyledCard>
+        <StyledLink to={`/dishes/${id}`}>
+          <CardMedia component="img" height="240" image={image} title={name} />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              {name}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {description}
+            </Typography>
+            <Typography variant="body1" color="textPrimary" component="p">
+              R${price.toFixed(2)}
+            </Typography>
+          </CardContent>
+        </StyledLink>
+        <CardActions>
+          <Button onClick={onOrder}>Fazer pedido</Button>
+          <Button onClick={addToCart}>Adicionar a sacola</Button>
+        </CardActions>
+      </StyledCard>
+    </>
   );
 }
 
 Dish.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string,
   price: PropTypes.number.isRequired,

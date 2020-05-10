@@ -7,7 +7,6 @@ export default (history, file) => async (values, actions) => {
   formData.append('name', values.name);
   formData.append('price', values.price);
   formData.append('description', values.description);
-  formData.append('photo', values.photo || null);
   try {
     const { status } = await api.post('/dishes', formData, {
       headers: {

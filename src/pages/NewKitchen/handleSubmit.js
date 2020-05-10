@@ -1,6 +1,6 @@
 import api from '~/services/api';
 
-export default history => async (values, actions) => {
+export default (history, file) => async (values, actions) => {
   try {
     const token = localStorage.getItem('accessToken');
     const { legalId, name, geolocation } = values;
