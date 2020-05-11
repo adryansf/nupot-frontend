@@ -18,7 +18,7 @@ export default function MyKitchen() {
   const classes = useStyles();
   const [myDishes, setMyDishes] = useState([]);
   const [open, setOpen] = useState(false);
-  const [kitchenName, setKitchenName] = useState('');
+  const [kitchen, setKitchen] = useState({});
 
   const handleDeletion = id => event => {
     const destroyDish = async () => {
@@ -48,8 +48,9 @@ export default function MyKitchen() {
             Authorization: `Bearer ${token}`,
           },
         });
-        setMyDishes(data.dishes);
-        setKitchenName(data.name);
+        const { dishes, ...kitchen } = data;
+        setMyDishes(dishes);
+        setKitchen(kitchen);
       } catch (error) {
         console.error(error);
       }
@@ -72,8 +73,8 @@ export default function MyKitchen() {
         onClose={() => setOpen(false)}
         classes={{ paper: classes.drawerPaper }}
       >
-        <Avatar className={classes.avatar} />
-        <h2>{kitchenName}</h2>
+        <Avatar className={classes.avatar} src={kitchen.avatar} />
+        <h2>{kitchen.name}</h2>
         <Divider />
         <List>
           {menuItems.map(item => (
