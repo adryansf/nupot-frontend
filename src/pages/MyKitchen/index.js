@@ -8,6 +8,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
+import OpenIcon from '@material-ui/icons/ChevronRight';
 import Dish from '~/components/Dish';
 import useStyles, { Container, Dishes } from './styles';
 import { menuItems } from './constants';
@@ -16,6 +17,7 @@ import api from '../../services/api';
 export default function MyKitchen() {
   const classes = useStyles();
   const [myDishes, setMyDishes] = useState([]);
+  const [open, setOpen] = useState(false);
   const [kitchenName, setKitchenName] = useState('');
 
   const handleDeletion = id => event => {
@@ -57,7 +59,18 @@ export default function MyKitchen() {
 
   return (
     <Container>
-      <Drawer variant="permanent" classes={{ paper: classes.drawerPaper }}>
+      <Button
+        className={classes.openDrawerButton}
+        onClick={() => setOpen(!open)}
+      >
+        <OpenIcon />
+      </Button>
+      <Drawer
+        variant="temporary"
+        open={open}
+        onClose={() => setOpen(false)}
+        classes={{ paper: classes.drawerPaper }}
+      >
         <Avatar className={classes.avatar} />
         <h2>{kitchenName}</h2>
         <Divider />
@@ -74,25 +87,24 @@ export default function MyKitchen() {
           <Button color="primary">Adicionar Novo Prato</Button>
         </Link>
       </Drawer>
-      <Dishes>
-        {myDishes.map(dish => (
-          <Dish
-            key={dish.id}
-            name={dish.name}
-            description={dish.description}
-            price={dish.price}
-            image={dish.photo}
+
+      {myDishes.map(dish => (
+        <Dish
+          key={dish.id}
+          name={dish.name}
+          description={dish.description}
+          price={dish.price}
+          image={dish.photo}
+        >
+          <Button
+            color="secondary"
+            onClick={handleDeletion(dish.id)}
+            startIcon={<DeleteIcon />}
           >
-            <Button
-              color="secondary"
-              onClick={handleDeletion(dish.id)}
-              startIcon={<DeleteIcon />}
-            >
-              Deletar
-            </Button>
-          </Dish>
-        ))}
-      </Dishes>
+            Deletar
+          </Button>
+        </Dish>
+      ))}
     </Container>
   );
 }

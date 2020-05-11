@@ -6,7 +6,9 @@ import chef from '~/assets/chef.svg';
 export const Container = styled.div`
   width: 100%;
   color: white;
-  position: relative;
+  display: flex;
+  padding-left: 60px;
+  flex-wrap: wrap;
 `;
 
 export const Dishes = styled(Paper)`
@@ -33,10 +35,21 @@ const avatarRadius = '60px';
 export default makeStyles({
   drawerPaper: {
     padding: '12px',
+    backgroundColor: 'aliceblue',
   },
   avatar: {
     width: avatarRadius,
     height: avatarRadius,
     margin: '30px',
+  },
+  openDrawerButton: {
+    position: 'fixed',
+    left: '6px',
+    top: '50%',
+    padding: 0,
+    width: '64px',
+    height: '64px',
+    borderRadius: '50%',
+    backgroundColor: 'white',
   },
 });
