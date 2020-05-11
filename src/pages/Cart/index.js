@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -81,6 +81,9 @@ export default () => {
       <Button color="#28a745" textColor="#eee" onClick={() => setOpen(true)}>
         Finalizar compra
       </Button>
+      <Link to="/search" className={classes.last}>
+        Continuar comprando
+      </Link>
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>Confirmação de pedido</DialogTitle>
         <DialogContent>
