@@ -41,7 +41,7 @@ export default function MyKitchen() {
         name={dish.name}
         description={dish.description}
         price={dish.price}
-        image={`http://prattu-api.herokuapp.com/${dish.photo}`}
+        image={dish.photo}
       >
         <Button onClick={handleOrder(dish)}>Compre já</Button>
       </Dish>

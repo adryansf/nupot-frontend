@@ -14,14 +14,9 @@ export default function Search() {
   const { search } = useLocation();
   const history = useHistory();
   const [, shopDispatch] = useShop();
-
   const handleOrder = dish => event => {
     shopDispatch({ type: 'addOneToCart', payload: dish });
     history.push('/cart');
-  };
-
-  const handleCart = dish => event => {
-    shopDispatch({ type: 'addOneToCart', payload: dish });
   };
 
   useEffect(() => {
@@ -44,7 +39,7 @@ export default function Search() {
             name={dish.name}
             description={dish.description}
             price={dish.price}
-            image={`http://prattu-api.herokuapp.com${dish.photo}`}
+            image={dish.photo}
             link={`/dishes/${dish.id}`}
           >
             <Button

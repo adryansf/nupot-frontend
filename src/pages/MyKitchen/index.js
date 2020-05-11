@@ -7,6 +7,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
 import Dish from '~/components/Dish';
 import useStyles, { Container, Dishes } from './styles';
 import { menuItems } from './constants';
@@ -80,12 +81,13 @@ export default function MyKitchen() {
             name={dish.name}
             description={dish.description}
             price={dish.price}
-            image={`http://prattu-api.herokuapp.com${dish.photo}`}
+            image={dish.photo}
           >
-            <Button variant="contained" color="primary">
-              Editar
-            </Button>
-            <Button color="secondary" onClick={handleDeletion(dish.id)}>
+            <Button
+              color="secondary"
+              onClick={handleDeletion(dish.id)}
+              startIcon={<DeleteIcon />}
+            >
               Deletar
             </Button>
           </Dish>
