@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '~/components/Button';
 import { useShop } from '~/contexts/ShopContext';
 import useStyles from './styles';
+import Form from './Form';
+import api from '~/services/api';
 
 export default () => {
   const [open, setOpen] = useState(false);
@@ -34,10 +36,11 @@ export default () => {
   };
 
   const handleConfirmation = event => {
-    setTimeout(() => {
+    const order = () => {
       dispatch({ type: 'resetCart' });
       history.push('/order_progress');
-    }, 1000);
+    };
+    setTimeout(order, 500);
   };
 
   return (
@@ -49,21 +52,24 @@ export default () => {
             className={classes.img}
             style={{ backgroundImage: `url(${dish.photo})` }}
           />
-          <TextField
-            className={classes.quantity}
-            variant="outlined"
-            label="Quantidade"
-            type="number"
-            value={dish.quantity}
-            onChange={handleChange(index, dish)}
-          />
-          <Typography>
-            R$
-            {(dish.quantity * dish.price)
-              .toFixed(2)
-              .toString()
-              .replace('.', ',')}
-          </Typography>
+          <div className={classes.price}>
+            <TextField
+              className={classes.quantity}
+              variant="outlined"
+              label="Quantidade"
+              type="number"
+              margin="dense"
+              value={dish.quantity}
+              onChange={handleChange(index, dish)}
+            />
+            <Typography>
+              R$
+              {(dish.quantity * dish.price)
+                .toFixed(2)
+                .toString()
+                .replace('.', ',')}
+            </Typography>
+          </div>
           <IconButton
             onClick={() => dispatch({ type: 'removeById', payload: dish.id })}
           >
@@ -76,17 +82,27 @@ export default () => {
         Finalizar compra
       </Button>
       <Dialog open={open} onClose={() => setOpen(false)}>
-        <DialogTitle>Você confirma?</DialogTitle>
+        <DialogTitle>Confirmação de pedido</DialogTitle>
         <DialogContent>
           <DialogContentText>
             <Typography>
               Você prefere receber seu prato em casa ou prefere retirar com o
               vendedor?
             </Typography>
+            <Form />
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleConfirmation}>Confirmar</Button>
+          <Button
+            color="#dc3545"
+            textColor="#eee"
+            onClick={() => setOpen(false)}
+          >
+            Cancelar
+          </Button>
+          <Button textColor="#28a745" onClick={handleConfirmation}>
+            Confirmar
+          </Button>
         </DialogActions>
       </Dialog>
     </Paper>

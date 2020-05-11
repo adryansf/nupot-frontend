@@ -14,7 +14,7 @@ export const Container = styled.div`
     font-weight: bold;
     font-size: 18px;
     opacity: 0.6;
-    transition: all 0.5s;
+    transition: all 0.5s ease;
 
     &:hover {
       opacity: 1;

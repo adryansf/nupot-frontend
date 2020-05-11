@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
@@ -9,6 +9,12 @@ const useStyles = makeStyles({
     margin: '12px auto',
     padding: '12px',
   },
+  price: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+  },
   item: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -16,6 +22,10 @@ const useStyles = makeStyles({
   },
   quantity: {
     maxWidth: '120px',
+    margin: '15px 0',
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '100px',
+    },
   },
   img: {
     height: '130px',
@@ -25,7 +35,11 @@ const useStyles = makeStyles({
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     margin: '12px',
+    [theme.breakpoints.down('sm')]: {
+      height: '85px',
+      width: '130px',
+    },
   },
-});
+}));
 
 export default useStyles;

@@ -4,11 +4,17 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Container } from './styles';
 
-export default function Nav({ screenWidth, isNavActive, links, children }) {
+export default function Nav({
+  screenWidth,
+  isNavActive,
+  links,
+  onClick,
+  children,
+}) {
   return (
     <Container mobile={screenWidth < 1170} isVisibility={isNavActive}>
       {links.map((link, index) => (
-        <Link key={index} to={link.to}>
+        <Link key={index} to={link.to} onClick={onClick}>
           {link.label}
         </Link>
       ))}

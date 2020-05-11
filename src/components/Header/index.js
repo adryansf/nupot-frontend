@@ -92,7 +92,12 @@ export default function Header() {
           </Tools>
         </>
       )}
-      <Nav screenWidth={width} isNavActive={isNavActive} links={links[forUser]}>
+      <Nav
+        screenWidth={width}
+        onClick={() => setIsNavActive(false)}
+        isNavActive={isNavActive}
+        links={links[forUser]}
+      >
         {signed && (
           <Button color="secondary" onClick={handleLogout}>
             Sair
