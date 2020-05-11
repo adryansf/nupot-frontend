@@ -7,7 +7,6 @@ export const Container = styled.div`
   width: 100%;
   color: white;
   display: flex;
-  padding-left: 60px;
   flex-wrap: wrap;
 `;
 
@@ -35,7 +34,7 @@ const avatarRadius = '60px';
 export default makeStyles({
   drawerPaper: {
     padding: '12px',
-    backgroundColor: 'aliceblue',
+    backgroundColor: 'palegoldenrod',
   },
   avatar: {
     width: avatarRadius,
@@ -50,6 +49,6 @@ export default makeStyles({
     width: '64px',
     height: '64px',
     borderRadius: '50%',
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
   },
 });

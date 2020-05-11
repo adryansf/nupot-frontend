@@ -62,8 +62,9 @@ export default function MyKitchen() {
       <Button
         className={classes.openDrawerButton}
         onClick={() => setOpen(!open)}
+        variant="text"
       >
-        <OpenIcon />
+        <OpenIcon color="primary" />
       </Button>
       <Drawer
         variant="temporary"

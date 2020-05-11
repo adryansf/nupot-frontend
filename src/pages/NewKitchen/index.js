@@ -9,6 +9,7 @@ import SubmitButton from '~/components/SubmitButton';
 import AvatarInput from '~/components/AvatarInput';
 import getHandler from './handleSubmit';
 import { initialValues, validationSchema } from './constants';
+import chef from '~/assets/chef.svg';
 
 import { Container, FormContainer, InfoContainer } from './styles';
 
@@ -29,9 +30,7 @@ export default function NewKitchen() {
   return (
     <Container>
       <InfoContainer>
-        <p>Cadastre sua cozinha. Veja as Vantagens:</p>
-        <p>Ganhe mais visibilidade</p>
-        <p>Aumente suas vendas</p>
+        <img src={chef} width="600px" />
       </InfoContainer>
       <FormContainer>
         <h1>Nova cozinha</h1>
