@@ -21,12 +21,9 @@ export default function Home() {
       <PitchContainer>
         <iframe
           title="presentation"
+          src="https://drive.google.com/file/d/16TCeew66HOpQKsq1Xbr4M7AY0InIbkUe/preview"
           width="560"
           height="315"
-          src="https://www.youtube-nocookie.com/embed/cDO_fHpaJuM"
-          frameBorder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
         />
       </PitchContainer>
     </Container>
