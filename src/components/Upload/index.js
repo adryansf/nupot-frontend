@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-
 import Dropzone from 'react-dropzone';
-
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { DropContainer, UploadMessage } from './styles';
 
 export default class Upload extends Component {
@@ -32,6 +31,7 @@ export default class Upload extends Component {
           >
             <input {...getInputProps()} />
             {this.renderDragMessage(isDragActive, isDragReject)}
+            <CloudUploadIcon style={{ width: '50px', height: '50px' }} />
           </DropContainer>
         )}
       </Dropzone>

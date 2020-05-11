@@ -92,16 +92,13 @@ export default function Header() {
           </Tools>
         </>
       )}
-      <Nav
-        screenWidth={width}
-        isNavActive={isNavActive}
-        links={links[forUser]}
-      />
-      {signed && (
-        <Button color="secondary" onClick={handleLogout}>
-          Sair
-        </Button>
-      )}
+      <Nav screenWidth={width} isNavActive={isNavActive} links={links[forUser]}>
+        {signed && (
+          <Button color="secondary" onClick={handleLogout}>
+            Sair
+          </Button>
+        )}
+      </Nav>
     </Container>
   );
 }

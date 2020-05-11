@@ -14,26 +14,27 @@ export const DropContainer = styled.div.attrs({
   height: 150px;
   border: 1px dashed #222;
   border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #ccc;
   background-image: url(${props => props.preview});
   background-repeat: no-repeat;
   background-size: cover;
+  background-blend-mode: overlay;
   cursor: pointer;
   transition: height 0.2s ease;
+  text-align: center;
   ${props => props.isDragActive && dragActive};
   ${props => props.isDragReject && dragReject};
 `;
 
 const messageColors = {
-  default: '#999',
+  default: '#666',
   error: '#e57878',
   success: '#78e5d5',
 };
 
 export const UploadMessage = styled.p`
-  display: flex;
+  display: block;
+  text-align: center;
   color: ${props => messageColors[props.type || 'default']};
-  justify-content: center;
-  align-items: center;
   padding: 15px 0;
 `;

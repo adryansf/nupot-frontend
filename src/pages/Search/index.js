@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import Button from '~/components/Button';
 import Headline from '~/components/Headline';
 import Dish from '~/components/Dish';
 import { Container, Dishes } from './styles';
@@ -45,17 +45,16 @@ export default function Search() {
             description={dish.description}
             price={dish.price}
             image={`http://prattu-api.herokuapp.com${dish.photo}`}
+            link={`/dishes/${dish.id}`}
           >
-            <Button onClick={handleOrder(dish)}>Pedir</Button>
             <Button
               startIcon={<AddShoppingCartIcon />}
-              onClick={handleCart(dish)}
+              onClick={handleOrder(dish)}
+              color="black"
+              textColor="white"
             >
-              Sacola
+              Comprar
             </Button>
-            <Link to={`/dishes/${dish.id}`}>
-              <Button>Ver mais detalhes</Button>
-            </Link>
           </Dish>
         ))}
       </Dishes>

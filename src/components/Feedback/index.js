@@ -47,7 +47,7 @@ export default () => {
               variant="outlined"
               autoFocus
               multiline
-              rows={8}
+              rows={7}
               fullWidth
             />
             <DialogActions>

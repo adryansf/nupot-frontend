@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Chip from '@material-ui/core/Chip';
 import Form from '~/components/Form';
 import TextField from '~/components/TextField';
 import Checkbox from '~/components/Checkbox';
 import SubmitButton from '~/components/SubmitButton';
-import Upload from '~/components/Upload';
+import AvatarInput from '~/components/AvatarInput';
 import getHandler from './handleSubmit';
 import { initialValues, validationSchema } from './constants';
 
@@ -35,26 +36,12 @@ export default function NewKitchen() {
       <FormContainer>
         <h1>Nova cozinha</h1>
         <br />
-        <label style={{ cursor: 'pointer' }}>
-          <img
-            src={
-              preview ||
-              'https://visualpharm.com/assets/233/Insert-595b40b65ba036ed117d1e34.svg'
-            }
-            alt="preview"
-            style={{
-              height: '100x',
-              width: '100px',
-              borderRadius: '50%',
-              display: 'block',
-            }}
+        <AvatarInput onChange={handleChangeAvatar} image={preview}>
+          <Chip
+            label="Escolha uma foto para sua cozinha"
+            style={{ width: '100%', cursor: 'pointer' }}
           />
-          <input
-            type="file"
-            onChange={handleChangeAvatar}
-            style={{ display: 'none ' }}
-          />
-        </label>
+        </AvatarInput>
         <Form
           initialValues={initialValues}
           validationSchema={validationSchema}

@@ -21,7 +21,7 @@ export default function Routes() {
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/meals" exact component={Search} />
-      <Route isPrivate path="/cart" exact component={Cart} />
+      <Route path="/cart" exact component={Cart} />
       <Route isPrivate path="/order_progress" exact component={FollowOrder} />
       <Route isPrivate path="/kitchen/new" exact component={NewKitchen} />
       <Route isPrivate path="/dish/new" exact component={NewDish} />
