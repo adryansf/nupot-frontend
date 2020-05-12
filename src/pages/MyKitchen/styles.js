@@ -30,25 +30,32 @@ export const Frame = styled.div`
   background-color: white;
 `;
 
-const avatarRadius = '60px';
+const avatarRadius = '150px';
 export default makeStyles({
   drawerPaper: {
     padding: '12px',
     backgroundColor: 'palegoldenrod',
+    minWidth: '300px',
   },
   avatar: {
     width: avatarRadius,
     height: avatarRadius,
-    margin: '30px',
+    margin: '30px auto',
   },
   openDrawerButton: {
     position: 'fixed',
-    left: '6px',
-    top: '50%',
+    left: '-45px',
+    top: '45%',
     padding: 0,
-    width: '64px',
-    height: '64px',
-    borderRadius: '50%',
-    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    height: '200px',
+    borderRadius: '0 12px 12px 0',
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    transition: 'all 0.3s ease',
+
+    '&:hover': {
+      left: 0,
+      backgroundColor: 'rgba(255, 255, 255, 0.5)',
+      transition: 'all 0.3s ease',
+    },
   },
 });
