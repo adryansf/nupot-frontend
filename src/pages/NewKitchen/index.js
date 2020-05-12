@@ -63,7 +63,7 @@ export default function NewKitchen() {
             fullWidth
           />
           <FormControlLabel
-            control={<Checkbox name="geolocation" checked />}
+            control={<Checkbox name="geolocation" />}
             label="Usar minha localização"
           />
           <SubmitButton

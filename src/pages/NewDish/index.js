@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import Form from '~/components/Form';
 import TextField from '~/components/TextField';
 import SubmitButton from '~/components/SubmitButton';
@@ -46,7 +47,6 @@ export default function NewDish() {
           <TextField
             name="description"
             label="Descrição"
-            type=""
             placeholder="Descreva em poucas palavras seu prato"
             variant="outlined"
             margin="dense"
@@ -62,6 +62,11 @@ export default function NewDish() {
             variant="outlined"
             margin="dense"
             size="small"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">R$</InputAdornment>
+              ),
+            }}
             fullWidth
           />
           <SubmitButton

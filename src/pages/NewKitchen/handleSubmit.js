@@ -14,6 +14,7 @@ export default (history, file) => async (values, actions) => {
         });
       } catch (error) {}
     }
+    console.log(geolocation);
     formData.append('legal_id', legalId);
     formData.append('name', name);
     formData.append('avatar', file);

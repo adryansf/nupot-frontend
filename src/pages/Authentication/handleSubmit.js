@@ -25,7 +25,6 @@ export const handleRegister = (history, setSigned) => async (
   try {
     const { confirmPassword, ...credentials } = values;
 
-    console.log(credentials);
     const { status, data } = await api.post('/users', credentials);
     if (status === 201) {
       const { token } = data;
