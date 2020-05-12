@@ -49,12 +49,12 @@ export default makeStyles({
     padding: 0,
     height: '200px',
     borderRadius: '0 12px 12px 0',
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     transition: 'all 0.3s ease',
 
     '&:hover': {
       left: 0,
-      backgroundColor: 'rgba(255, 255, 255, 0.5)',
+      backgroundColor: 'rgba(255, 255, 255, 0.75)',
       transition: 'all 0.3s ease',
     },
   },
